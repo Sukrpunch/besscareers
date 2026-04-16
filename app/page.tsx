@@ -67,7 +67,7 @@ export default function Home() {
           </h1>
 
           <p style={{ fontSize: 'clamp(1rem, 4vw, 20px)', color: '#cbd5e1', marginBottom: '32px', maxWidth: '800px', margin: '0 auto 32px' }}>
-            Deep career guides for Battery Energy Storage engineers. Learn the skills that command $100K–$200K+.
+            Deep career guides for Battery Energy Storage Professionals. Learn the skills that command $100K–$200K+.
           </p>
 
           <a

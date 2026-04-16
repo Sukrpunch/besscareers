@@ -106,13 +106,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   © 2026 BESScareers. Part of the BESS ecosystem.
                 </p>
                 <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-                  <a href="#" style={{ color: '#64748b', textDecoration: 'none', fontSize: '12px' }}>
+                  <a href="/privacy" style={{ color: '#64748b', textDecoration: 'none', fontSize: '12px' }}>
                     Privacy Policy
                   </a>
-                  <a href="#" style={{ color: '#64748b', textDecoration: 'none', fontSize: '12px' }}>
+                  <a href="/terms" style={{ color: '#64748b', textDecoration: 'none', fontSize: '12px' }}>
                     Terms of Service
                   </a>
-                  <a href="#" style={{ color: '#64748b', textDecoration: 'none', fontSize: '12px' }}>
+                  <a href="/contact" style={{ color: '#64748b', textDecoration: 'none', fontSize: '12px' }}>
                     Contact
                   </a>
                 </div>
