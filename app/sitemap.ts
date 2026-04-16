@@ -1,13 +1,9 @@
-import { MetadataRoute } from 'next';
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://besscareers.com';
-
+export default function sitemap() {
   return [
     {
-      url: baseUrl,
+      url: 'https://besscareers.com',
       lastModified: new Date('2026-04-16'),
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'daily',
       priority: 1,
     },
   ];
