@@ -46,10 +46,11 @@ export default function Privacy() {
 
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '32px', marginBottom: '16px' }}>5. Contact Us</h2>
           <p style={{ marginBottom: '24px' }}>
-            If you have questions about this privacy policy, please contact us at{' '}
-            <a href="mailto:privacy@besscareers.com" style={{ color: '#16a34a', textDecoration: 'underline' }}>
-              privacy@besscareers.com
+            If you have questions about this privacy policy, please use our{' '}
+            <a href="/contact" style={{ color: '#16a34a', textDecoration: 'underline' }}>
+              contact form
             </a>
+            {' '}to get in touch.
           </p>
         </div>
       </section>
