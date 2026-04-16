@@ -26,8 +26,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Navigation */}
         <nav style={{ borderBottom: '1px solid #e2e8f0', backgroundColor: 'white', position: 'sticky', top: 0, zIndex: 100 }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px', paddingTop: '16px', paddingBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <a href="/" style={{ fontSize: '24px', fontWeight: 'bold', textDecoration: 'none', color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ color: '#16a34a' }}>BESS</span><span>careers</span>
+            <a href="/" style={{ fontSize: '24px', fontWeight: 'bold', textDecoration: 'none', color: '#0f172a', display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ 
+                backgroundColor: '#16a34a', 
+                width: '40px', 
+                height: '40px', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                fontSize: '24px'
+              }}>
+                ⚡
+              </div>
+              <div>
+                <span style={{ color: '#0f172a' }}>BESS</span><span style={{ color: '#16a34a' }}>careers</span>
+              </div>
             </a>
             <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
               <a href="/" style={{ color: '#64748b', textDecoration: 'none', fontSize: '16px' }}>
@@ -52,9 +66,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '48px', marginBottom: '48px' }}>
               {/* Brand Section */}
               <div>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', color: '#0f172a' }}>
-                  <span style={{ color: '#16a34a' }}>BESS</span>careers
-                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                  <div style={{ 
+                    backgroundColor: '#16a34a', 
+                    width: '36px', 
+                    height: '36px', 
+                    borderRadius: '6px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '20px'
+                  }}>
+                    ⚡
+                  </div>
+                  <p style={{ fontSize: '18px', fontWeight: 'bold', margin: 0, color: '#0f172a' }}>
+                    <span style={{ color: '#0f172a' }}>BESS</span><span style={{ color: '#16a34a' }}>careers</span>
+                  </p>
+                </div>
                 <p style={{ color: '#64748b', lineHeight: '1.6', fontSize: '14px' }}>
                   Career guides and salary benchmarks for Battery Energy Storage professionals.
                 </p>
