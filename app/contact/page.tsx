@@ -130,7 +130,7 @@ export default function Contact() {
             <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '16px' }}>For Job Postings & Recruiting</h2>
             <p style={{ marginBottom: '16px' }}>
               Visit{' '}
-              <a href="https://www.bessjobs.com" style={{ color: '#16a34a', textDecoration: 'underline', fontWeight: 'bold' }}>
+              <a href="https://www.bessjobs.com" target="_blank" rel="noopener noreferrer" style={{ color: '#16a34a', textDecoration: 'underline', fontWeight: 'bold' }}>
                 BESSjobs.com
               </a>
               {' '}to post jobs or find BESS Professionals.

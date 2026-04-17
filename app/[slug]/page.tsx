@@ -155,6 +155,8 @@ export default async function ArticlePage({ params }: PageProps) {
           </p>
           <a
             href="https://www.bessjobs.com"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-block',
               backgroundColor: 'white',

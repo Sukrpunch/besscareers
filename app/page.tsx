@@ -188,6 +188,8 @@ export default function Home() {
           </p>
           <a
             href="https://www.bessjobs.com"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-block',
               backgroundColor: 'white',
