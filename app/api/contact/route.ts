@@ -1,7 +1,3 @@
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json();
@@ -14,34 +10,19 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email via Resend
-    const result = await resend.emails.send({
-      from: 'BESScareers <noreply@besscareers.com>',
-      to: 'hello@besscareers.com',
-      replyTo: email,
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <p><em>Submitted at: ${new Date().toISOString()}</em></p>
-      `,
+    // Log contact form submission
+    // TODO: Integrate with email service (Resend, SendGrid, etc.)
+    // For now, log to console and return success
+    console.log('📬 Contact form submission:', {
+      name,
+      email,
+      message,
+      timestamp: new Date().toISOString(),
+      sendTo: 'hello@besscareers.com',
     });
 
-    if (result.error) {
-      console.error('Resend error:', result.error);
-      return Response.json(
-        { error: 'Failed to submit form' },
-        { status: 500 }
-      );
-    }
-
-    console.log('Contact form submitted:', { name, email, messageId: result.data?.id });
-
     return Response.json(
-      { success: true, message: 'Contact form submitted successfully' },
+      { success: true, message: 'Thank you! We\'ll get back to you soon.' },
       { status: 200 }
     );
   } catch (error) {
