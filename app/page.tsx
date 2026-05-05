@@ -110,7 +110,7 @@ export default function Home() {
           </div>
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontSize: 'clamp(2rem, 6vw, 48px)', fontWeight: 'bold', color: '#16a34a', marginBottom: '8px' }}>
-              5 Guides
+              {articles.length}+ Guides
             </div>
             <p style={{ color: '#64748b', fontSize: 'clamp(0.9rem, 3vw, 1rem)' }}>
               Skill-to-salary career paths
