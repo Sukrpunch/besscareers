@@ -1,6 +1,12 @@
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message, website } = await request.json();
+
+    // Honeypot check — reject if bot filled the hidden field
+    if (website && website.trim() !== '') {
+      console.log('🚨 Bot detected via honeypot field on BESScareers contact form');
+      return Response.json({ error: 'Invalid submission' }, { status: 400 });
+    }
 
     // Validate input
     if (!name || !email || !message) {

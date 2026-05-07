@@ -15,6 +15,7 @@ export default function Contact() {
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
+      website: formData.get('website') || '',
     };
 
     try {
@@ -106,6 +107,15 @@ export default function Contact() {
                 }}
               />
             </div>
+
+            {/* Honeypot field — hidden from real users, catches bots */}
+            <input
+              type="text"
+              name="website"
+              style={{ display: 'none' }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
 
             <button
               type="submit"
