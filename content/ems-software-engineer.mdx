@@ -69,24 +69,23 @@ The engineer's job: **Maximize profit while respecting all constraints.**
 
 ### The Algorithm Challenge
 
-```
-Maximize: Revenue = (arbitrage + frequency response + demand charges)
-Subject to:
-  ├─ Battery constraints (20%–80% SOC)
-  ├─ Ramp rate limits (10 MW/min)
-  ├─ Dispatch orders (ISO rules)
-  ├─ Transmission limits
-  ├─ Market price forecasts (imperfect)
-  └─ Equipment degradation costs
+**Maximize:** Revenue = (arbitrage + frequency response + demand charges)
 
-Time horizons:
-  ├─ 5-min (frequency response)
-  ├─ 1-hour (spot market)
-  ├─ 24-hour (day-ahead planning)
-  └─ Seasonal (long-term contracts)
+**Subject to:**
+- Battery constraints (20%–80% SOC)
+- Ramp rate limits (10 MW/min)
+- Dispatch orders (ISO rules)
+- Transmission limits
+- Market price forecasts (imperfect)
+- Equipment degradation costs
 
-Complexity: NP-hard. Solving in <5 seconds = massive skill.
-```
+**Time horizons:**
+- 5-min (frequency response)
+- 1-hour (spot market)
+- 24-hour (day-ahead planning)
+- Seasonal (long-term contracts)
+
+**Complexity:** NP-hard. Solving in <5 seconds = massive skill.
 
 ## Real Market Dispatch Example (CAISO, May 2026)
 
