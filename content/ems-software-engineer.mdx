@@ -93,17 +93,57 @@ Complexity: NP-hard. Solving in <5 seconds = massive skill.
 **System:** 50 MW / 200 MWh BESS in Northern California
 
 **Market Prices (24-hour ahead forecast):**
-```
-Hour | Day-Ahead Price | Frequency Reserve | Expected Dispatch
------|-----------------|-------------------|-------------------
-0-4  | $20/MWh         | Low demand        | CHARGE (cheap)
-5    | $35/MWh         | Morning ramp up   | HOLD (prepare)
-6-9  | $45–$65/MWh     | High variability  | DISCHARGE peak
-10   | $30/MWh         | Afternoon low     | RECHARGE
-11-15| $25–$40/MWh     | Solar oversupply  | HOLD / CHARGE
-16-19| $80–$120/MWh    | Evening peak      | DISCHARGE full
-20-23| $40/MWh         | Night wind up     | IDLE / HOLD
-```
+
+<table>
+<tr>
+  <th>Hour</th>
+  <th>Day-Ahead Price</th>
+  <th>Frequency Reserve</th>
+  <th>Expected Dispatch</th>
+</tr>
+<tr>
+  <td>0-4</td>
+  <td>$20/MWh</td>
+  <td>Low demand</td>
+  <td>CHARGE (cheap)</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>$35/MWh</td>
+  <td>Morning ramp up</td>
+  <td>HOLD (prepare)</td>
+</tr>
+<tr>
+  <td>6-9</td>
+  <td>$45–$65/MWh</td>
+  <td>High variability</td>
+  <td>DISCHARGE peak</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>$30/MWh</td>
+  <td>Afternoon low</td>
+  <td>RECHARGE</td>
+</tr>
+<tr>
+  <td>11-15</td>
+  <td>$25–$40/MWh</td>
+  <td>Solar oversupply</td>
+  <td>HOLD / CHARGE</td>
+</tr>
+<tr>
+  <td>16-19</td>
+  <td>$80–$120/MWh</td>
+  <td>Evening peak</td>
+  <td>DISCHARGE full</td>
+</tr>
+<tr>
+  <td>20-23</td>
+  <td>$40/MWh</td>
+  <td>Night wind up</td>
+  <td>IDLE / HOLD</td>
+</tr>
+</table>
 
 **Algorithm's Optimization:**
 1. **Charge at hours 0–4:** 40 MWh @ $20/MWh = $800 cost
