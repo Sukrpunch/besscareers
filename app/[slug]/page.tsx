@@ -110,9 +110,17 @@ export async function generateStaticParams() {
   }
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const contentDir = path.join(process.cwd(), 'public', 'content');
+  let contentDir = path.join(process.cwd(), 'public', 'content');
+  
+  // Fallback if public/content doesn't exist
+  if (!fs.existsSync(contentDir)) {
+    contentDir = path.join(process.cwd(), 'content');
+  }
+  
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
