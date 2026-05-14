@@ -83,6 +83,18 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Generate static params for all articles
+export async function generateStaticParams() {
+  const contentDir = path.join(process.cwd(), 'public', 'content');
+  const files = fs.readdirSync(contentDir);
+  
+  return files
+    .filter((file) => file.endsWith('.mdx'))
+    .map((file) => ({
+      slug: file.replace('.mdx', ''),
+    }));
+}
+
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
   const contentDir = path.join(process.cwd(), 'public', 'content');
@@ -188,16 +200,6 @@ export default async function ArticlePage({ params }: PageProps) {
       </div>
     </article>
   );
-}
-
-// Generate static paths for all articles
-export async function generateStaticParams() {
-  const contentDir = path.join(process.cwd(), 'content');
-  const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.mdx'));
-
-  return files.map(file => ({
-    slug: file.replace('.mdx', ''),
-  }));
 }
 
 // Generate metadata for each article
