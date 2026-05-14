@@ -86,8 +86,7 @@ interface PageProps {
 // Generate static params for all articles
 export async function generateStaticParams() {
   try {
-    // Read from app/data which is always included
-    const contentDir = path.join(process.cwd(), 'app', 'data');
+    const contentDir = path.join(process.cwd(), 'content');
     const files = fs.readdirSync(contentDir);
     
     return files
@@ -101,12 +100,9 @@ export async function generateStaticParams() {
   }
 }
 
-export const dynamic = 'force-dynamic';
-
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  // Read from app/data which is always included in the build
-  const contentDir = path.join(process.cwd(), 'app', 'data');
+  const contentDir = path.join(process.cwd(), 'content');
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
@@ -214,7 +210,7 @@ export default async function ArticlePage({ params }: PageProps) {
 // Generate metadata for each article
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const contentDir = path.join(process.cwd(), 'app', 'data');
+  const contentDir = path.join(process.cwd(), 'content');
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
