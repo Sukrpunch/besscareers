@@ -85,7 +85,7 @@ interface PageProps {
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const contentDir = path.join(process.cwd(), 'content');
+  const contentDir = path.join(process.cwd(), 'public', 'content');
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
@@ -203,7 +203,7 @@ export async function generateStaticParams() {
 // Generate metadata for each article
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const contentDir = path.join(process.cwd(), 'content');
+  const contentDir = path.join(process.cwd(), 'public', 'content');
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
