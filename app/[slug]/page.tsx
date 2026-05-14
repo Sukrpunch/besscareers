@@ -86,17 +86,8 @@ interface PageProps {
 // Generate static params for all articles
 export async function generateStaticParams() {
   try {
-    // Try multiple possible paths for Vercel build environment
-    let contentDir = path.join(process.cwd(), 'public', 'content');
-    
-    if (!fs.existsSync(contentDir)) {
-      contentDir = path.join(process.cwd(), 'content');
-    }
-    
-    if (!fs.existsSync(contentDir)) {
-      return [];
-    }
-    
+    // Read from app/data which is always included
+    const contentDir = path.join(process.cwd(), 'app', 'data');
     const files = fs.readdirSync(contentDir);
     
     return files
@@ -114,13 +105,8 @@ export const dynamic = 'force-dynamic';
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  let contentDir = path.join(process.cwd(), 'public', 'content');
-  
-  // Fallback if public/content doesn't exist
-  if (!fs.existsSync(contentDir)) {
-    contentDir = path.join(process.cwd(), 'content');
-  }
-  
+  // Read from app/data which is always included in the build
+  const contentDir = path.join(process.cwd(), 'app', 'data');
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
@@ -228,7 +214,7 @@ export default async function ArticlePage({ params }: PageProps) {
 // Generate metadata for each article
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const contentDir = path.join(process.cwd(), 'public', 'content');
+  const contentDir = path.join(process.cwd(), 'app', 'data');
   const articlePath = path.join(contentDir, `${slug}.mdx`);
 
   if (!fs.existsSync(articlePath)) {
