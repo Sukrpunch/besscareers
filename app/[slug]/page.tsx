@@ -85,14 +85,29 @@ interface PageProps {
 
 // Generate static params for all articles
 export async function generateStaticParams() {
-  const contentDir = path.join(process.cwd(), 'public', 'content');
-  const files = fs.readdirSync(contentDir);
-  
-  return files
-    .filter((file) => file.endsWith('.mdx'))
-    .map((file) => ({
-      slug: file.replace('.mdx', ''),
-    }));
+  try {
+    // Try multiple possible paths for Vercel build environment
+    let contentDir = path.join(process.cwd(), 'public', 'content');
+    
+    if (!fs.existsSync(contentDir)) {
+      contentDir = path.join(process.cwd(), 'content');
+    }
+    
+    if (!fs.existsSync(contentDir)) {
+      return [];
+    }
+    
+    const files = fs.readdirSync(contentDir);
+    
+    return files
+      .filter((file) => file.endsWith('.mdx'))
+      .map((file) => ({
+        slug: file.replace('.mdx', ''),
+      }));
+  } catch (error) {
+    console.error('Error in generateStaticParams:', error);
+    return [];
+  }
 }
 
 export default async function ArticlePage({ params }: PageProps) {
